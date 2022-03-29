@@ -5,7 +5,7 @@ public class ControlFlowExercises {
 
 //        int i = 5;
 //        while (i <= 15) {
-//            System.out.println(i++);
+//            System.out.print((i++) + " ");
 //        }
 
 //        int i = 0;
@@ -73,18 +73,35 @@ public class ControlFlowExercises {
 
         Scanner sc = new Scanner(System.in);
 
-//        System.out.print("Please enter a number 1-5:");
+
+
+
+
+//        String answer;
+//       do {
+//           System.out.print("Please enter a number 1-10:");
 //
-//        int input = sc.nextInt();
+//           int input = sc.nextInt();
 //
-//        System.out.println("Here is your table! \n");
-//        System.out.println("number | squared | cubed");
-//        System.out.println("------ | ------- | -----");
-//        for (int i = 1; i <= input; i++) {
-//            int squared = i * i;
-//            int cubed = i * i * i;
-//            System.out.println(i + "\t   | " + squared + "\t\t | " + cubed);
-//        }
+//           System.out.println("Here is your table! \n");
+//           System.out.println("number | squared | cubed");
+//           System.out.println("------ | ------- | -----");
+//           for (int i = 1; i <= input; i++) {
+//               int squared = i * i;
+//               int cubed = i * i * i;
+//               System.out.println(i + "\t   | " + squared + "\t\t | " + cubed);
+//           }
+//           System.out.println("Do you wish to continue? y or n");
+//            answer = sc.next();
+//       } while (answer.equals("y"));
+
+
+
+
+
+
+
+
 
 
 //        while(true) {
@@ -135,8 +152,9 @@ public class ControlFlowExercises {
 //
 //            System.out.println("Do you wish to continue? y or n");
 //            answer = sc.next();
-//        } while (answer.equals("y"));
 //
+//        } while (answer.equals("y"));
+
 
     }
 }
