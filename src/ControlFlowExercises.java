@@ -77,23 +77,24 @@ public class ControlFlowExercises {
 
 
 
-//        String answer;
-//       do {
-//           System.out.print("Please enter a number 1-10:");
-//
-//           int input = sc.nextInt();
-//
-//           System.out.println("Here is your table! \n");
-//           System.out.println("number | squared | cubed");
-//           System.out.println("------ | ------- | -----");
-//           for (int i = 1; i <= input; i++) {
-//               int squared = i * i;
-//               int cubed = i * i * i;
-//               System.out.println(i + "\t   | " + squared + "\t\t | " + cubed);
-//           }
-//           System.out.println("Do you wish to continue? y or n");
-//            answer = sc.next();
-//       } while (answer.equals("y"));
+        String answer;
+       do {
+           System.out.print("Please enter a number 1-10:");
+
+           int input = sc.nextInt();
+
+           System.out.println("Here is your table! \n");
+           System.out.println("number | squared | cubed");
+           System.out.println("------ | ------- | -----");
+           for (int i = 1; i <= input; i++) {
+               int squared = i * i;
+               int cubed = i * i * i;
+               System.out.println(i + "\t   | " + squared + "\t\t | " + cubed);
+           }
+           System.out.println("Do you wish to continue? y or n");
+            answer = sc.next();
+       } while (answer.equals("y"));
+
 
 
 
