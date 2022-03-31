@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MethodsExercises {
 
-
+/////////////////  BASIC ARITHMETIC  /////////////////////////////////////////////////////
 //    public static int addition(int x, int y){
 //        return x + y;
 //    }
@@ -39,33 +39,63 @@ public class MethodsExercises {
 //        System.out.println(modulus(10, 2));
 //    }
 
-
+////////////////  GET INTEGER METHOD  ///////////////////////////////////////////////////
 //    public static int getInteger(int min, int max) {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.print("Enter a number between 1 and 10: ");
 //        int userInput = sc.nextInt();
 //
 //        if (userInput > max || userInput < min) {
-//            System.out.println("Input is invalid");
+//            System.out.println("Invalid number");
 //            return getInteger(min, max);
 //        } else {
-//            System.out.println("You know how to follow rules, thank you.");
 //            return userInput;
 //        }
 //    }
-
+//
 //    public static void main(String[] args) {
 //        getInteger(1, 10);
 //    }
 
 
-//    public static int calcFactorial(int num) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter a number between 1 and 10: ");
-//        int userInput = sc.nextInt();
+//////////////  CALCULATE FACTORIAL METHOD USING GET INTEGER METHOD  /////////////////////
+//    public static void calcFactorial(int number) {
+//    long fact = 1;
+//        for (int i = 1; i <= number; i++) {
+//            fact = fact * i;
+//        }
+//        System.out.println("Factorial of " + number + " is: " + fact);
+//    }
+//
+//    public static void main(String[] args) {
+//        calcFactorial(getInteger(1, 10));
 //    }
 
 
+//////////////  STAND ALONE CALCULATE FACTORIAL METHOD  ///////////////////////////////////
+//    public static void calcFactorial() {
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter a number between 1 and 10: ");
+//        int userInput = sc.nextInt();
+//        long fact = 1;
+//
+//        if (userInput >= 1 && userInput <= 10) {
+//            for (int i = 1; i <= userInput; i++) {
+//                fact = fact * i;
+//            }
+//            System.out.println("Factorial of " + userInput + " is: " + fact);
+//        } else {
+//            System.out.println("Invalid number");
+//            calcFactorial();
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        calcFactorial();
+//    }
+
+
+/////////////  DICE GAME METHOD  ////////////////////////////////////////////////////////////
 //    public static int numberOfSides() {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.println("Lets roll some dice. . . ");
@@ -89,8 +119,8 @@ public class MethodsExercises {
 //        do {
 //            System.out.println("Your first die rolled: " + randomNumber(e));
 //            System.out.println("Your second die rolled: " + randomNumber(e));
-//            System.out.println("Roll again? y or n");
-//            System.out.println("Or type 'change' to restart");
+//            System.out.println("\nRoll again? y or n");
+//            System.out.println("Or type 'change' to restart game");
 //
 //            answer = sc.next();
 //            if (answer.equals("change")) {
