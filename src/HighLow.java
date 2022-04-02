@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class HighLow {
     public static void guessingGame() {
         System.out.println("Let's play a guessing game. . .");
-        System.out.println("I'm thinking of a number between 1 and 10, try and guess my number: ");
+        System.out.println("I'm thinking of a number between 1 and 100, try and guess my number: ");
         Scanner sc = new Scanner(System.in);
-        int computerValue = (int) (Math.random() * 10 + 1);
+        int computerValue = (int) (Math.random() * 100 + 1);
         int numberOfTries = 0;
         while (true) {
             numberOfTries++;
