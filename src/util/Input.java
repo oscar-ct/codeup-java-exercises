@@ -11,7 +11,7 @@ public class Input {
     }
 
     public boolean yesNo() {
-        System.out.println("yes or no?");
+//        System.out.println("yes or no?");
         String userInput = sc.next();
         return userInput.equals("y") || userInput.equals("yes");
     }
@@ -42,7 +42,7 @@ public class Input {
     }
 
     public double getDouble() {
-        System.out.println("Enter a decimal number: ");
+//        System.out.println("Enter a decimal number: ");
         return sc.nextDouble();
     }
 
