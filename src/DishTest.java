@@ -4,7 +4,6 @@ class DishTools {
     public static void shoutDishName(Dish dish) {
         System.out.println(dish.getNameOfDish().toUpperCase());
     }
-
     public static void analyzeDishCost(Dish dish) {
         if (dish.getCostInCents() < AVG_COST_OF_DISH_IN_CENTS){
             System.out.println("Less expensive than average");
@@ -12,12 +11,10 @@ class DishTools {
             System.out.println("More expensive than average");
         }
     }
-
     public static void flipRecommendation(Dish dish) {
         boolean reverse = dish.isWouldRecommend();
-        System.out.println(!reverse);
+        dish.setWouldRecommend(!reverse);
     }
-
 }
 
 
@@ -40,17 +37,17 @@ class Dish {
 //
 //    }
 
+/////////////////////  constructor  #1  ///////////////////////////////////////////////////////////////
     public Dish(int costInCents, String nameOfDish, boolean wouldRecommend) {
         this();
         this.costInCents = costInCents;
         this.nameOfDish = nameOfDish;
         this.wouldRecommend = wouldRecommend;
     }
-
+/////////////////////  constructor  #2  ///////////////////////////////////////////////////////////////
     public Dish() {
     }
-
-
+/////////////////////  getters  /////////////////////////////////////////////////////////////////////
     public int getCostInCents() {
         return costInCents;
     }
@@ -60,10 +57,7 @@ class Dish {
     public boolean isWouldRecommend() {
         return wouldRecommend;
     }
-
-
-
-
+//////////////////////  setters  ///////////////////////////////////////////////////////////////////
     public void setCostInCents(int costInCents) {
         this.costInCents = costInCents;
     }
@@ -74,30 +68,28 @@ class Dish {
         this.wouldRecommend = wouldRecommend;
     }
 
-
-
-
     public void printSummary() {
         System.out.printf("Cost: %d %nName: %s %nWould recommend: %b %n", costInCents, nameOfDish, wouldRecommend);
     }
 }
 
+
+
+
 public class DishTest {
     public static void main(String[] args) {
-
+////////////// created an instance, used constructor #1 to set data  ///////////////////////////////
         Dish dish1 = new Dish(100 , "Pizza", true);
 
-//        System.out.println(dish1.getDish());
-/////// THIS ONLY WORKS FOR PUBLIC //////////////
+
+////////////// THIS ONLY WORKS FOR PUBLIC //////////////////////////////////////////////////////////
 //        dish1.costInCents = 25;
 //        dish1.nameOfDish = "Cheeseburger";
 //        dish1.wouldRecommend = true;
-//////////////////////////////////////////////////
 //        System.out.println(dish1.getDish());
 
-
+////////////// created an instance, used constructor #2, used setters to set data //////////////////
         Dish dish2 = new Dish();
-
         dish2.setCostInCents(2000000);
         dish2.setNameOfDish("Steak");
         dish2.setWouldRecommend(true);
@@ -112,6 +104,7 @@ public class DishTest {
         DishTools.analyzeDishCost(dish2);
 
         DishTools.flipRecommendation(dish1);
+        DishTools.flipRecommendation(dish2);
 
         dish1.printSummary();
         dish2.printSummary();
