@@ -1,3 +1,5 @@
+package javer_exercises;
+
 public class Monster {
     private String name;
     private int armorClass;

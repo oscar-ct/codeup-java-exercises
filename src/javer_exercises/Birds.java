@@ -1,3 +1,5 @@
+package javer_exercises;
+
 public class Birds {
     // can it fly?
     private boolean canFly;
