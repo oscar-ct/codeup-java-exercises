@@ -1,4 +1,6 @@
-public class PetDog extends Pet implements Companion{
+package Practice;
+
+public class PetDog extends Pet implements Companion {
 
     private boolean trained;
 
