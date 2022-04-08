@@ -27,6 +27,9 @@ class Person {
         Person oscar = new Person("Oscar");
         oscar.sayHello();
     }
+    public String toString(){
+        return name;
+    }
 
 }
 
