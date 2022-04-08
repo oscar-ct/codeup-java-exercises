@@ -6,7 +6,7 @@ public class Input {
     private Scanner sc = new Scanner(System.in);
 
     public String getString() {
-        System.out.println("Type some words:");
+
         return sc.nextLine();
     }
 
@@ -31,6 +31,18 @@ public class Input {
         return sc.nextInt();
     }
 
+    public int getIntEX() {
+        System.out.println("Enter a number: ");
+        try {
+            return Integer.valueOf(getString());
+        } catch (NumberFormatException ru) {
+            System.out.println("This is not a integer fool!!" );
+        }
+        return getIntEX();
+    }
+
+
+
     public double getDouble(double min, double max) {
         System.out.println("Enter a decimal number between " + min + " - " + max + ": ");
         double userInput = sc.nextDouble();
@@ -45,6 +57,38 @@ public class Input {
 //        System.out.println("Enter a decimal number: ");
         return sc.nextDouble();
     }
+
+    public double getDoubleEX() {
+        System.out.println("Enter a decimal number: ");
+        try {
+            return Double.valueOf(getString());
+        } catch (NumberFormatException ru) {
+            System.out.println("This is not a decimal fool!!" );
+        }
+        return getDoubleEX();
+    }
+
+
+    public int getBinary() {
+        System.out.println("Enter a binary number: ");
+        try {
+            return Integer.valueOf(getString(), 2);
+        } catch (NumberFormatException ru) {
+            System.out.println("This is not a integer fool!!" );
+        }
+        return getBinary();
+    }
+
+
+    public int getHex() {
+        System.out.println("Enter a hexidecimal number: ");
+        return Integer.valueOf(getString(), 16);
+    }
+
+//    public long getHex() {
+//        System.out.println("Enter a hexidecimal number: ");
+//        return Long.parseLong(getString(), 16);
+//    }
 
 
 }
