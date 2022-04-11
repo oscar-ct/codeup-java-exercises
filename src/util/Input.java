@@ -13,23 +13,43 @@ public class Input {
     public boolean yesNo() {
 //        System.out.println("yes or no?");
         String userInput = sc.next();
-        return userInput.equals("y") || userInput.equals("yes");
+        return userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes");
     }
 
     public int getInt(int min, int max) {
-        System.out.println("Enter a number between " + min + " - " + max + ": ");
-        int userInput = sc.nextInt();
+//        System.out.println("Enter a number between " + min + " - " + max + ": ");
+        int userInput = getInt();
         if (userInput > max || userInput < min) {
-            return getInt(min, max);
+            return 0;
         } else {
             return userInput;
         }
     }
 
+
     public int getInt() {
-        System.out.println("Enter a number: ");
-        return sc.nextInt();
+//        System.out.println("Enter a number: ");
+        try {
+            return sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Please enter a valid number");
+            sc.nextLine();
+            return getInt();
+        }
     }
+
+
+    public long getLong() {
+//        System.out.println("Enter a number: ");
+        try {
+            return sc.nextLong();
+        } catch (Exception e) {
+            System.out.println("Please enter a valid number");
+            sc.nextLine();
+            return getLong();
+        }
+    }
+
 
     public int getIntEX() {
         System.out.println("Enter a number: ");
