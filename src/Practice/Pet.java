@@ -1,5 +1,7 @@
 package Practice;
 
+import java.util.ArrayList;
+
 public class Pet {
 
     String name;
@@ -25,4 +27,11 @@ public class Pet {
     public void setType(String type) {
         this.type = type;
     }
+
+    public static void allSnuggle(ArrayList<PetDog> list) {
+        for (PetDog dog : list) {
+            System.out.println(dog.snuggle());
+        }
+    }
+
 }
