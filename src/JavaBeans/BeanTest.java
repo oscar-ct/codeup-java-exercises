@@ -8,8 +8,6 @@ public class BeanTest {
     public static void main(String[] args) {
 
         System.out.println();
-
-
         System.out.println();
 
         Author authorOne = new Author(1, "Stephen", "King");
@@ -20,9 +18,7 @@ public class BeanTest {
         Quotes quoteOne = new Quotes(1, authorOne, "Books are a uniquely portable magic");
         Quotes quoteTwo = new Quotes(2, authorTwo, "Always obey your parents when they are present");
         Quotes quoteThree = new Quotes(3, authorThree, "We cannot solve our problems with the same thinking we used when we created them");
-        Quotes quoteFour = new Quotes(3, authorThree, "You want to find the secrets of the universe, think in terms of energy, frequency and vibration");
-
-
+        Quotes quoteFour = new Quotes(3, authorFour, "You want to find the secrets of the universe, think in terms of energy, frequency and vibration");
 
 
 
@@ -50,8 +46,9 @@ public class BeanTest {
         array.add(albumTwo);
 
         for (int i = 0; i < array.size(); i++) {
-            System.out.print(array.get(i).getArtist() + ", ");
-            System.out.println(array.get(i).getName());
+            System.out.print(array.get(i).getName() + " - ");
+            System.out.println(array.get(i).getArtist());
+            System.out.println("Album sales: " + array.get(i).getSales());
         }
 
 
