@@ -1,3 +1,5 @@
+package adlister;
+
 public class UserInputExercise {
 
     // completed a jdbc exercise/ user input using java, mysql and jsp/jstl

@@ -1,3 +1,5 @@
+package adlister;
+
 public class CookiesSessionBonusExercise {
 
     // completed a challenging java session bonus exercise by Justin Reich.
