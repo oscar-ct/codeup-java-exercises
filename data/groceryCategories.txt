@@ -1,0 +1,8 @@
+beverages
+bread_bakery
+canned_goods
+dairy
+dry_baking_goods
+frozen_foods
+meats
+produce
