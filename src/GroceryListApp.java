@@ -1,6 +1,7 @@
 import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public class GroceryListApp {
 
     private Scanner sc = new Scanner(System.in);
-    public Path groceryCategoryTextFilePath = Paths.get("data/groceryCategories.txt");
+    public Path groceryCategoryTextFilePath = Paths.get("data/grocery_txt_files/grocery_categories.txt");
     public List<String> existingGroceryCategoryList = new ArrayList<>();
     public List<String> placeholderGroceryCategoryList = new ArrayList<>();
 
@@ -36,11 +37,17 @@ public class GroceryListApp {
     }
 
 
-    public void addGroceryCategoryListTxtFile () {
+    public void createAndWriteToGroceryCategoryListTxtFile () {
         try {
-            Files.write(groceryCategoryTextFilePath, groceryCategoryList(), StandardOpenOption.APPEND);
+            Path file = Paths.get("data/grocery_txt_files/grocery_categories.txt");
+//            if (Files.exists(file)) {
+//                Files.write(file, Collections.singleton(""), StandardCharsets.UTF_8);
+                Files.write(groceryCategoryTextFilePath, groceryCategoryList(), StandardCharsets.UTF_8);
+//                Files.write(groceryCategoryTextFilePath, groceryCategoryList(), StandardOpenOption.APPEND);
+//            }
+
         } catch(IOException e) {
-            System.out.println("Something went wrong adding grocery category list" + e);
+            System.out.println("Something went wrong creating and adding grocery category list" + e);
         }
     }
 
@@ -48,18 +55,35 @@ public class GroceryListApp {
         try {
             existingGroceryCategoryList = Files.readAllLines(groceryCategoryTextFilePath);
             Collections.sort(existingGroceryCategoryList);
+            existingGroceryCategoryList.forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("Error reading files " + groceryCategoryTextFilePath.getFileName());
             e.printStackTrace();
         }
-        existingGroceryCategoryList.forEach(System.out::println);
+    }
+
+    public void createGroceryListByCategory () {
+        for (String category : groceryCategoryList()) {
+            try {
+                Path file = Paths.get("data/grocery_txt_files/" + category + ".txt");
+//                if (Files.exists(file)) {
+                    Files.write(file, Collections.singleton(""), StandardCharsets.UTF_8);
+//                }
+            } catch (IOException e) {
+                System.out.println("Something went wrong creating grocery lists by category" + e);
+            }
+        }
+
+
     }
 
 
     public static void main(String[] args) {
         GroceryListApp groceryListApp = new GroceryListApp();
-//        groceryListApp.addGroceryCategoryListTxtFile();
+        groceryListApp.createAndWriteToGroceryCategoryListTxtFile();
         groceryListApp.readGroceryCategoryListTxtFile();
+        groceryListApp.createGroceryListByCategory();
+
     }
 
 
