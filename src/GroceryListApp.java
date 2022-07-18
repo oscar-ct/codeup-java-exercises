@@ -16,6 +16,8 @@ public class GroceryListApp {
     private Scanner sc = new Scanner(System.in);
     public Path groceryCategoryTextFilePath = Paths.get("data/grocery_txt_files/grocery_categories.txt");
     public List<String> existingGroceryCategoryList = new ArrayList<>();
+    public List<String> existingGroceryList = new ArrayList<>();
+
     public List<String> placeholderGroceryCategoryList = new ArrayList<>();
 
     public String getString() {
@@ -77,12 +79,27 @@ public class GroceryListApp {
 
     }
 
+    public void readGroceriesByCategoryTxtFile (String category) {
+        Path file = Paths.get("data/grocery_txt_files/" + category + ".txt");
+        try {
+            existingGroceryList = Files.readAllLines(file);
+            Collections.sort(existingGroceryList);
+            existingGroceryList.forEach(System.out::println);
+        } catch (IOException e) {
+            System.out.println("Error reading grocery list by category " + groceryCategoryTextFilePath.getFileName());
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     public static void main(String[] args) {
         GroceryListApp groceryListApp = new GroceryListApp();
-        groceryListApp.createAndWriteToGroceryCategoryListTxtFile();
-        groceryListApp.readGroceryCategoryListTxtFile();
-        groceryListApp.createGroceryListByCategory();
+//        groceryListApp.createAndWriteToGroceryCategoryListTxtFile();
+//        groceryListApp.readGroceryCategoryListTxtFile();
+//        groceryListApp.createGroceryListByCategory();
+        groceryListApp.readGroceriesByCategoryTxtFile("beverages");
 
     }
 
