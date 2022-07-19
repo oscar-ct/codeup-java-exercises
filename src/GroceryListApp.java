@@ -91,6 +91,31 @@ public class GroceryListApp {
         }
     }
 
+    public void mainMenu () {
+        System.out.println("-----  Grocery App  -----");
+        System.out.println("1. Create Grocery List ");
+        System.out.println("2. Exit");
+        System.out.println("Enter an option (1, 2)");
+        int selectedNumber = getInteger();
+        if (selectedNumber == 1) {
+            System.out.println("test 1 complete");
+        } else if (selectedNumber == 2) {
+            System.out.println("test 2 complete");
+        } else {
+            System.out.println("Fail t3st complete");
+        }
+    }
+
+    public int getInteger() {
+        try {
+            return sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Please enter a number");
+            sc.nextLine();
+            return getInteger();
+        }
+    }
+
 
 
 
@@ -99,7 +124,8 @@ public class GroceryListApp {
 //        groceryListApp.createAndWriteToGroceryCategoryListTxtFile();
 //        groceryListApp.readGroceryCategoryListTxtFile();
 //        groceryListApp.createGroceryListByCategory();
-        groceryListApp.readGroceriesByCategoryTxtFile("beverages");
+//        groceryListApp.readGroceriesByCategoryTxtFile("beverages");
+        groceryListApp.mainMenu();
 
     }
 
