@@ -1,15 +1,10 @@
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class GroceryListApp {
 
@@ -91,14 +86,41 @@ public class GroceryListApp {
         }
     }
 
+    public String capitalizeString (String string) {
+        String[] words = string.split("\\s");
+        String newString = "";
+        for (String word : words) {
+            String firstLetter = word.substring(0,1);
+            String restOfWord = word.substring(1);
+            newString += firstLetter.toUpperCase() + restOfWord + " ";
+        }
+        return newString.trim();
+    }
+
+
+
+    public void categoryMenu () {
+
+            for (int i = 1; i < groceryCategoryList().size(); i++) {
+                String category = groceryCategoryList().get(i).replaceAll("_", " ");
+                System.out.println(i + ". " + capitalizeString(category));
+            }
+        System.out.println("X. Exit");
+        System.out.println("-----  Select a category  -----");
+
+    }
+
+
     public void mainMenu () {
-        System.out.println("-----  Grocery App  -----");
-        System.out.println("1. Create Grocery List ");
-        System.out.println("2. Exit");
-        System.out.println("Enter an option (1, 2)");
+        System.out.println("~~~~~~~~  Welcome to the Grocery App!  ~~~~~~~~");
+        System.out.println("1. View Grocery List ");
+        System.out.println("2. Create Grocery List ");
+        System.out.println("X. Exit");
+        System.out.println("-----  Select an option  -----");
+
         int selectedNumber = getInteger();
         if (selectedNumber == 1) {
-            System.out.println("test 1 complete");
+            categoryMenu();
         } else if (selectedNumber == 2) {
             System.out.println("test 2 complete");
         } else {
@@ -117,6 +139,29 @@ public class GroceryListApp {
     }
 
 
+    public HashMap<String, ArrayList<String>> groceryCategoriesHashMap () {
+        HashMap<String, ArrayList<String>> groceriesByCategoryHM = new HashMap<>();
+        for (String category : groceryCategoryList()) {
+            groceriesByCategoryHM.put(category, new ArrayList<>());
+        }
+        return groceriesByCategoryHM;
+    }
+
+    public void groceryId () {
+        HashMap<String, HashMap<String, ArrayList<String>>>  groceryIds = new HashMap<>();
+        ArrayList<String> groceries = new ArrayList<>();
+        groceries.add("Coke Cola");
+        groceries.add("Gatorade");
+        HashMap<String, ArrayList<String>> updatedGroceryList = groceryCategoriesHashMap();
+        updatedGroceryList.put("beverages", groceries);
+        groceryIds.put("kayla's list", updatedGroceryList);
+        System.out.println(groceryIds.get("kayla's list").get("beverages"));
+    }
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -125,7 +170,11 @@ public class GroceryListApp {
 //        groceryListApp.readGroceryCategoryListTxtFile();
 //        groceryListApp.createGroceryListByCategory();
 //        groceryListApp.readGroceriesByCategoryTxtFile("beverages");
-        groceryListApp.mainMenu();
+     groceryListApp.groceryId();
+//        groceryListApp.mainMenu();
+
+//        System.out.println(groceryListApp.groceryCategoriesHashmap());
+
 
     }
 
