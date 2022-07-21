@@ -149,13 +149,21 @@ public class GroceryListApp {
 
     public void groceryId () {
         HashMap<String, HashMap<String, ArrayList<String>>>  groceryIds = new HashMap<>();
-        ArrayList<String> groceries = new ArrayList<>();
-        groceries.add("Coke Cola");
-        groceries.add("Gatorade");
+
         HashMap<String, ArrayList<String>> updatedGroceryList = groceryCategoriesHashMap();
+        String groceryListName = sc.nextLine();
+        groceryIds.put(groceryListName, updatedGroceryList);
+
+        ArrayList<String> groceries = groceries("beverages");
+        groceries.add(sc.nextLine());
         updatedGroceryList.put("beverages", groceries);
-        groceryIds.put("kayla's list", updatedGroceryList);
-        System.out.println(groceryIds.get("kayla's list").get("beverages"));
+
+        System.out.println(groceryIds.get(groceryListName).get("beverages"));
+    }
+
+    public ArrayList<String> groceries (String category) {
+        ArrayList<String> groceries = new ArrayList<>();
+        return groceries;
     }
 
 
@@ -170,7 +178,7 @@ public class GroceryListApp {
 //        groceryListApp.readGroceryCategoryListTxtFile();
 //        groceryListApp.createGroceryListByCategory();
 //        groceryListApp.readGroceriesByCategoryTxtFile("beverages");
-     groceryListApp.groceryId();
+groceryListApp.groceryId();
 //        groceryListApp.mainMenu();
 
 //        System.out.println(groceryListApp.groceryCategoriesHashmap());
