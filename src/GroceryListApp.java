@@ -1,4 +1,6 @@
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -164,6 +166,10 @@ public class GroceryListApp {
     public ArrayList<String> groceries (String category) {
         ArrayList<String> groceries = new ArrayList<>();
         return groceries;
+    }
+
+    public static void testingApplication () {
+        System.out.println("This project is going to continue to in a separate spring boot application, Oscar out!");
     }
 
 
